@@ -1,5 +1,5 @@
 function link_zap(){
-    location.href='https://api.whatsapp.com/send?phone=5513997191911';
+    location.href='https://api.whatsapp.com/send?phone=5513997131714';
 }
 
 var tel_zap = document.getElementsByClassName("zap")[0];
@@ -14,5 +14,5 @@ var link_insta = document.getElementsByClassName("dropdown-item")[2];
 
 
     var el = document.getElementsByClassName("contato_itens")[0];
-    el.children[3].innerHTML = "<i class='fa fa-envelope'></i> anibal@masterradios.com.br";
+    el.children[3].innerHTML = "<i class='fa fa-envelope'></i> meucardapiocajati@outlook.com";
     
