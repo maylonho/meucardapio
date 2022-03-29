@@ -89,14 +89,14 @@ body{
 
 
 .row_marcas{
-    background-color: #7a7a7a;
+    background-color: #3377cc;
 }
 
 .row_marcas h3{
-    font-family: sans-serif;
+    font-family: 'Comfortaa', cursive;
     color: #b6b6b6;
     font-weight: 700;
-    font-size: 40pt;
+    font-size: 25pt;
 }
 
 
@@ -225,4 +225,8 @@ body{
     border: 1px solid #000000;
     cursor: pointer;
     color: white;
+}
+
+.apres_titulo{
+    font-family: 'Comfortaa', cursive;
 }
