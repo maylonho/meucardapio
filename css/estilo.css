@@ -94,7 +94,7 @@ body{
 
 .row_marcas h3{
     font-family: 'Comfortaa', cursive;
-    color: #b6b6b6;
+    color: #ffffff;
     font-weight: 700;
     font-size: 25pt;
 }
@@ -107,8 +107,9 @@ body{
 }
 
 .marcas img{
+    border-radius: 20px;
     margin: 5px;
-    width: 200px;
+    width: 150px;
     margin: 15px;
 }
 
