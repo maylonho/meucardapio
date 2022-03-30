@@ -336,11 +336,6 @@ include("./php/conexao.php");
   
     </div>
 
-    <?php
-echo $id_empresa, "<br>";
-echo $nome_empresa, "<br>";
-echo $cnpj_empresa, "<br>";
-    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
