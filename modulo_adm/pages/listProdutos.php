@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("../classes/class-contas.php");
+include("../classes/class-cardapio.php");
 include("../php/verifica_login.php");
-$contas = new Contas();
+$cardapio = new Contas();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $contas = new Contas();
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestão de Vendas e Contas</title>
+    <title>Modulo administrador - Meu Cardapio </title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="../css/estilos.css" rel="stylesheet" />
@@ -22,6 +22,7 @@ $contas = new Contas();
     <!--Scrips Pessoais - Funções -->
     <script src="../js/functions.js" ></script>
 
+    <div class="container-fluid">
     <?php include("../componentes/nav-bar-sup.php");?>
 
     <div class="row mb-5">
@@ -31,7 +32,7 @@ $contas = new Contas();
               
                                 
               <!--Menu Lateral-->
-              <?php $_SESSION['pg'] = "listDeve"; include("../componentes/nav-lateral2.php") ?>
+              <?php $_SESSION['pg'] = "listProdutos"; include("../componentes/nav-lateral.php") ?>
                   
           
           
@@ -41,15 +42,11 @@ $contas = new Contas();
       
               
           <div class="container mt-3">
-            <form class="row g-3" action="listDeve.php" method="GET">
+            <form class="row g-3" action="listProdutos.php" method="GET">
           
               <div class="col-md-3">
-                <label for="data-inicial" class="form-label">Data Inicial</label>
-                <input type="date" class="form-control" id="data-inicial" name="data-inicial">
-              </div>
-              <div class="col-md-3">
-                <label for="data-final" class="form-label">Data Final</label>
-                <input type="date" class="form-control" id="data-final" name="data-final">
+                <label for="data-inicial" class="form-label">Nome do Produto</label>
+                <input type="text" class="form-control" id="nome" name="nome">
               </div>
               <div class="col-md-4 row justify-content-end mt-5">
                   <div class="col-auto">
@@ -76,13 +73,13 @@ $contas = new Contas();
           
               <?php
 
-                if(!isset($_GET['id_menu']) & !isset($_GET['id_empresa']) ){
-                  $contas->listarProdutos();
+                if(!isset($_GET['nome']) ){
+                  $cardapio->listarProdutos();
                 }
               
               
-                if (isset($_GET['data-inicial']) & isset($_GET['data-final'])  & !isset($_GET['idCompra'])) {
-                  $contas->listarProdutosPorNome();
+                if (isset($_GET['nome'])) {
+                  $cardapio->listarProdutosPorNome();
 
 
                 }
@@ -124,5 +121,7 @@ $contas = new Contas();
         //$('#exampleModal').modal('show');
       });
     </script>
+
+  </div><!--Final container-fluid-->
   </body>
 </html>

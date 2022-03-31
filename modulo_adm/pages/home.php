@@ -8,7 +8,7 @@ include("../php/verifica_login.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestão de Vendas e Contas</title>
+    <title>Modulo administrador - Meu Cardapio</title> 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     
@@ -16,6 +16,7 @@ include("../php/verifica_login.php");
 <body style="margim: 0px; overflow-x: hidden;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     
+    <div class="container-fluid">
     <?php include("../componentes/nav-bar-sup.php");?>
     <div>
 
@@ -26,7 +27,7 @@ include("../php/verifica_login.php");
                 
                                   
         <!--Menu Lateral-->
-        <?php $_SESSION['pg'] = "home"; include("../componentes/nav-lateral2.php") ?>
+        <?php $_SESSION['pg'] = "home"; include("../componentes/nav-lateral.php") ?>
             
     
     
@@ -56,5 +57,7 @@ include("../php/verifica_login.php");
         <div class="container d-flex justify-content-center">
           <h4>ID do Cliente: <?php echo $_SESSION['id_empresa_logada']; ?></h4>
         </div>
+
+        </div><!--Final do container-fluid-->
 </body>
 </html>

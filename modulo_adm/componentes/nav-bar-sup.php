@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-light mx-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-0">
   <div class="container-fluid">
     <img src="../imgs/logo-banner.png" width="170px"/>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

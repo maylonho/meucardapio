@@ -11,7 +11,7 @@ session_start();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="../css/pg_login.css" rel="stylesheet" />
-    <title>SGVC!</title>
+    <title>Modulo administrador - Meu Cardapio</title>
   </head>
   <body>
     <div>
@@ -23,7 +23,7 @@ session_start();
     
         <!-- Icon -->
         <div class="imgLogo">
-          <img src="../../imgs/logo_grande_cardapio.png" id="icon" alt="User Icon"/>
+          <img src="../imgs/logo-banner.png" id="icon" alt="User Icon"/>
         </div>
         <div class="row">
           <?php if(isset($_SESSION['usuario_invalido'])) : ?>
