@@ -38,7 +38,17 @@ include("../php/verifica_login.php");
                         
         <div class="container">
 
-          <form class="row g-3" action="../php/proc_cadProdutos.php" method="POST">
+        <?php
+          if(isset($_GET['modo']) && $_GET['modo'] == 'editar'){
+            $botao = 'Editar';
+            $link = '../php/proc_modoEditar.php';
+          }else{
+            $botao = 'Cadastrar';
+            $link = '../php/modoCadastrarNormal.php';
+          }
+        ?>
+
+          <form class="row g-3" method="POST">
             <div class="col-xl-2 col-sm-6">
               <label for="nomeCliente" class="form-label">ID do Produto</label>
               <input type="text" class="form-control" id="id_menu" name="id_menu" required>
@@ -66,7 +76,8 @@ include("../php/verifica_login.php");
             </div>
             <div class="col-md-9 row justify-content-end mt-5">
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" action="<?php echo $link; ?>" class="btn btn-danger">Excluir</button>
+                    <button type="submit" action="<?php echo $link; ?>" class="btn btn-primary"><?php echo $botao; ?></button>
                 </div>
             </div>
           </form>

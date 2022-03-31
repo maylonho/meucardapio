@@ -133,10 +133,10 @@ include("./php/conexao.php");
                             ?>
 
                               <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
+                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo utf8_encode($row['produto_menu']);?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
                               </div>
                               <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
+                                <p class="card-text mb-2 text-muted text-left"><?php echo utf8_encode($row['descricao_menu']);?></p>
                               </div>
 
                               <?php
@@ -178,10 +178,10 @@ include("./php/conexao.php");
                             ?>
 
                               <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
+                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo utf8_encode($row['produto_menu']);?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
                               </div>
                               <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
+                                <p class="card-text mb-2 text-muted text-left"><?php echo utf8_encode($row['descricao_menu']);?></p>
                               </div>
 
                               <?php
@@ -222,10 +222,10 @@ include("./php/conexao.php");
                             ?>
 
                               <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
+                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo utf8_encode($row['produto_menu']);?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
                               </div>
                               <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
+                                <p class="card-text mb-2 text-muted text-left"><?php echo utf8_encode($row['descricao_menu']);?></p>
                               </div>
 
                               <?php
@@ -266,10 +266,10 @@ include("./php/conexao.php");
                             ?>
 
                               <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
+                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo utf8_encode($row['produto_menu']);?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
                               </div>
                               <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
+                                <p class="card-text mb-2 text-muted text-left"><?php echo utf8_encode($row['descricao_menu']);?></p>
                               </div>
 
                               <?php
