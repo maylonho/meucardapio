@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`id_sequencial`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela meu_cardapio.menu: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela meu_cardapio.menu: ~23 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id_sequencial`, `id_menu`, `id_empresa`, `produto_menu`, `descricao_menu`, `valor_menu`, `secao_menu`) VALUES
 	(1, 1, 1, 'X-Salada', 'pao, hamburguer e queijo', 12.89, 'Lanches'),
