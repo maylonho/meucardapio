@@ -14,7 +14,9 @@ $id_empresa = $_SESSION['id_empresa_logada'];
 $sql = "INSERT INTO menu (id_menu, id_empresa, produto_menu, descricao_menu, valor_menu, secao_menu) VALUES ('$id_menu', '$id_empresa', '$produto_menu', '$descricao_menu', '$valor_menu', '$secao_menu')";
 if($conexao->query($sql) === TRUE) {
     $_SESSION['cad_produto_realizado'] = true;
-} 
+}else{
+    $_SESSION['cad_produto_erro'] = true;
+}
 
 
 

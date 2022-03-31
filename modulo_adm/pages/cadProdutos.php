@@ -80,8 +80,16 @@ include("../php/verifica_login.php");
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           <?php 
+          elseif(isset($_SESSION['cad_produto_erro'])) :
+            ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>ERRO!</strong> Nao foi possivel cadastrar o produto, tente novamente.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php 
             endif;
             unset($_SESSION['cad_produto_realizado']);
+            unset($_SESSION['cad_produto_erro']);
           ?>
         </div>
 
