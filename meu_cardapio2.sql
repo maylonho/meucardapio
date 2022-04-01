@@ -14,7 +14,7 @@
 
 
 -- Copiando estrutura do banco de dados para meu_cardapio
-CREATE DATABASE IF NOT EXISTS `meu_cardapio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `meu_cardapio` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `meu_cardapio`;
 
 -- Copiando estrutura para tabela meu_cardapio.empresa
@@ -43,39 +43,32 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `id_sequencial` int(11) NOT NULL AUTO_INCREMENT,
   `id_menu` int(11) NOT NULL,
   `id_empresa` int(11) DEFAULT NULL,
-  `produto_menu` varchar(30) DEFAULT NULL,
-  `descricao_menu` varchar(100) NOT NULL DEFAULT '',
+  `produto_menu` varchar(30) CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL,
+  `descricao_menu` varchar(100) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
   `valor_menu` double DEFAULT NULL,
-  `secao_menu` varchar(10) DEFAULT NULL,
+  `secao_menu` varchar(10) CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL,
   PRIMARY KEY (`id_sequencial`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela meu_cardapio.menu: ~23 rows (aproximadamente)
+-- Copiando dados para a tabela meu_cardapio.menu: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id_sequencial`, `id_menu`, `id_empresa`, `produto_menu`, `descricao_menu`, `valor_menu`, `secao_menu`) VALUES
-	(1, 1, 1, 'X-Salada', 'pao, hamburguer e queijo', 12.89, 'Lanches'),
-	(2, 13, 1, 'X-Tudo', 'pao, hamburguer e queijo, ovo, bacon, calabresa, e tudopao, hamburguer e queijo, ovo, bacon, calabre', 17.89, 'Lanches'),
-	(3, 14, 1, 'Cóca-Cola', 'lata de 350ml', 4.5, 'Bebidas'),
-	(4, 15, 1, 'Bife Grelhado', 'arroz, feijao, contra file e ovo frito', 22.89, 'Pratos'),
-	(5, 16, 1, 'Fritas P', 'batata frita com 100g', 6.5, 'Porcoes'),
-	(6, 17, 1, 'X-bacon', 'dasojdijas', 7.9, 'Lanches'),
-	(7, 18, 1, 'Carne de Panela', 'Arroz, feijao, e carne acem', 20, 'Pratos'),
 	(8, 19, 2, 'Frango', 'frango assado com arroz e feijao', 21.6, 'Pratos'),
 	(9, 20, 1, 'Hot Dog', 'Pao salsicha, maionese, batata palha', 8.5, 'Lanches'),
 	(10, 12, 1, 'Hot Duplo', 'Pao salsicha, maionese, batata palha', 21.6, 'Lanches'),
 	(11, 11, 2, 'Prato Comercial', 'Arroz, Feijao, bife acebolado, e pure de batata', 26.9, 'Pratos'),
 	(12, 10, 1, 'X-Frango', 'X-Salado so que com frango no lugar do hamburgue', 13, 'Lanches'),
-	(13, 2, 1, 'porco', 'carne de porco empanada', 23, 'Porcoes'),
-	(14, 3, 1, 'porco', 'frango assado com arroz e feijao', 23, 'Lanches'),
-	(15, 4, 1, 'BARBUDO', 'BARBUDOBARBUDOBARBUDOBARBUDOBARBUDOBARBUDOBARBUDO', 998, 'Lanches'),
+	(14, 3, 1, 'CARRO', 'frango assado com arroz e feijao', 50.5, 'Bebidas'),
+	(15, 4, 1, 'X-Barbudo', 'Pao de Brioche, calabresa, batata palha, e alface', 15.65, 'Lanches'),
 	(16, 5, 51, 'hkjhnkj', 'nknkjbn jhblkh', 78, 'Lanches'),
 	(17, 6, 51, 'hjkh', 'njnkj', 8, 'Lanches'),
 	(18, 7, 1, 'Frango a', 'ARROZ E FRANGO', 24, 'Pratos'),
 	(19, 8, 51, 'kkkkk', 'kmkmkmk', 89, 'Lanches'),
-	(20, 9, 1, 'CARRO', 'dsdddsdfs', 89, 'Lanches'),
 	(21, 21, 51, 'Guarana', 'Lata de 350ml', 5, 'Bebidas'),
 	(22, 21, 51, 'Comercial + Bife', 'Arroz, feijao, e carne assada', 23, 'Pratos'),
-	(23, 6, 51, 'Fritas Media', 'Porcao de fritas com bacon e cheddar', 10, 'Porcoes');
+	(23, 6, 51, 'Fritas Media', 'Porcao de fritas com bacon e cheddar', 10, 'Porcoes'),
+	(27, 112, 1, 'Comercial + Bife', 'nlknlnl klnl', 21.6, 'Porcoes'),
+	(40, 12, 1, 'tipográçãoxxxxx', 'Os operadores gráficos e tipográficos ferramenta de geração tipográção', 12.43, 'Porcoes');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
