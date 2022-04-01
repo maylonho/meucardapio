@@ -58,15 +58,15 @@ $cardapio = new Contas();
               <div class="col-12 row">
 
               <?php
-                  if(isset($_SESSION['prest_paga'])):
+                  if(isset($_SESSION['edit_produto_realizado'])):
               ?>
                   <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-                    <strong>Feito!</strong> A Prestação foi paga com sucesso!
+                    <strong>Feito!</strong> Alteracao realizado com sucesso!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
               <?php
                   endif;
-                  unset($_SESSION['prest_paga']);
+                  unset($_SESSION['edit_produto_realizado']);
               ?>
                   <h1>...</h1>
               <!--TABELA-->
@@ -74,12 +74,15 @@ $cardapio = new Contas();
               <?php
 
                 if(!isset($_GET['nome']) ){
-                  $cardapio->listarProdutos();
+                  $id_empresa_logada = $_SESSION['id_empresa_logada'];
+                  $cardapio->listarProdutos("SELECT * FROM menu WHERE id_empresa='$id_empresa_logada'");
                 }
               
               
                 if (isset($_GET['nome'])) {
-                  $cardapio->listarProdutosPorNome();
+                  $id_empresa_logada = $_SESSION['id_empresa_logada'];
+                  $nome_produto = $_GET['nome'];
+                  $cardapio->listarProdutos("SELECT * FROM menu WHERE produto_menu like '%$nome_produto%' AND id_empresa='$id_empresa_logada'");
 
 
                 }

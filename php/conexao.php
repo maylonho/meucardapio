@@ -1,8 +1,4 @@
 <?php
-define('HOST', 'localhost');
-define('USUARIO', 'root');
-define('SENHA', '');
-define('DB', 'meu_cardapio');
-
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die('Nao foi possivel conectar');
+$conexao = mysqli_connect("localhost","root","","meu_cardapio");
+mysqli_set_charset($conexao,"utf8");
 ?>

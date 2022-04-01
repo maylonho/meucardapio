@@ -21,12 +21,13 @@ function calculaParc(){
 
 //Funções da Pagina ListDeve
 var linkPag = "Padrao";
-function definirDadosModal(titulo, desc, link){
+function definirDadosModal(titulo, desc){
     document.getElementById("exampleModalLabel").innerHTML = titulo;
     document.getElementById("modal-body").innerHTML = desc;
-    linkPag = link;
 }
 function linkAtual(){
     return linkPag;
 }
+
+
 

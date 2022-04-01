@@ -13,14 +13,10 @@ include("../php/verifica_login.php");
   </head>
 
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!--Scrips Pessoais - Funções -->
     <script src="../js/functions.js" ></script>
-    <!--Scrip Bootstrap--->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!--Scrip para mascara de telefone--->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-
 
     <div class="container-fluid">
     <!--Menu nav Superior-->
@@ -38,32 +34,37 @@ include("../php/verifica_login.php");
                         
         <div class="container">
 
-        <?php
-          if(isset($_GET['modo']) && $_GET['modo'] == 'editar'){
-            $botao = 'Editar';
-            $link = '../php/proc_modoEditar.php';
-          }else{
-            $botao = 'Cadastrar';
-            $link = '../php/modoCadastrarNormal.php';
-          }
-        ?>
-
-          <form class="row g-3" method="POST">
+          <form class="row g-3" method="POST" action="../php/proc_produtos.php">
             <div class="col-xl-2 col-sm-6">
               <label for="nomeCliente" class="form-label">ID do Produto</label>
-              <input type="text" class="form-control" id="id_menu" name="id_menu" required>
+              <?php
+                      if(isset($_GET['modo']) && $_GET['modo'] == 'editar'){
+                        echo "
+                          
+                          <input type='text' class='form-control' id='id_menu' name='id_menu' value='", $_GET['id_menu'] ,"' readonly>
+                        ";
+                      }else{
+                        echo "
+                          <input type='text' class='form-control' id='id_menu' name='id_menu' required>
+                        ";
+                      }
+                    ?>
+              
             </div>
             <div class="col-xl-3 col-sm-6">
               <label for="telCliente2" class="form-label">Nome do Produto</label>
-              <input type="text" class="form-control" id="produto_menu" name="produto_menu" required>
+              <input value="<?php if(isset($_GET['produto_menu'])) : echo $_GET['produto_menu']; endif; ?>" type="text" class="form-control" id="produto_menu" name="produto_menu" required>
             </div>
             <div class="col-xl-2 col-sm-6">
               <label for="valorTotal" class="form-label">Valor do Produto</label>
-              <input type="text" class="form-control" id="valor_menu" name="valor_menu" required>
+              <input value="<?php if(isset($_GET['valor_menu'])) : echo $_GET['valor_menu']; endif; ?>" type="text" class="form-control" id="valor_menu" name="valor_menu" required>
             </div>
             <div class="col-xl-2 col-sm-6">
               <label for="valorTotal" class="form-label">Secao do Produto.</label>
               <select type="text" class="form-select" id="secao_menu" name="secao_menu">
+                <?php
+                  if(isset($_GET['secao_menu'])) : echo "<option selected>" . $_GET['secao_menu'] . "</option>"; endif;
+                ?>
                 <option>Lanches</option>
                 <option>Pratos</option>
                 <option>Bebidas</option>
@@ -72,13 +73,46 @@ include("../php/verifica_login.php");
             </div>
             <div class="col-9">
               <label for="enderecoCliente" class="form-label">Descrição do Produto</label>
-              <input type="text" class="form-control" id="descricao_menu" name="descricao_menu" required>
+              <input value="<?php if(isset($_GET['descricao_menu'])) : echo $_GET['descricao_menu']; endif; ?>" type="text" class="form-control" id="descricao_menu" name="descricao_menu" required>
             </div>
             <div class="col-md-9 row justify-content-end mt-5">
                 <div class="col-auto">
-                    <button type="submit" action="<?php echo $link; ?>" class="btn btn-danger">Excluir</button>
-                    <button type="submit" action="<?php echo $link; ?>" class="btn btn-primary"><?php echo $botao; ?></button>
-                </div>
+
+                <?php
+                  if(isset($_GET['modo']) && $_GET['modo'] == 'editar') :
+                  ?>
+                          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="definirDadosModal('Confimação', 'Tem certeza que deseja excluir o produto?')">Excluir</button>
+                          <button type='submit' name='salvar' class='btn btn-primary '>Salvar</button>
+
+
+
+                                  <!-- Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="modal-body">
+                                  ...
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                  <button type="submit" name="excluir" class="btn btn-danger">Continuar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  <?php 
+                  elseif(!isset($_GET['modo'])) :
+                    ?>
+                    <button type='submit' name='cadastrar' class='btn btn-primary '>Cadastrar</button>
+                    <?php 
+                    endif;
+                  ?>
+
+                  </div>
             </div>
           </form>
 
@@ -103,9 +137,13 @@ include("../php/verifica_login.php");
             unset($_SESSION['cad_produto_erro']);
           ?>
         </div>
-
-      </div>
+              
+        </div>
     </div>      
     </div><!--Final do container-fluid-->
+
+
+
+
   </body>
 </html>
