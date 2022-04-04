@@ -108,186 +108,65 @@ include("./php/conexao.php");
         <!--Inicio dos cards-->
         <div class="row justify-content-sm-center">
             
-        <!--Secao Lanches-->
         <?php
-                $sql = "SELECT * FROM menu WHERE secao_menu='Lanches' AND id_empresa='$id_empresa' order by id_menu asc";
-                $result = mysqli_query($conexao, $sql);
-                $secao_lanches_qtd=mysqli_num_rows($result);
-                
-                if($secao_lanches_qtd>=1){
-                  echo "";
-                  ?>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        
-                        <div class="card border-0 mb-5">
-                            <img class="card-img-top" src="./imgs/secao_lanches.png">
-                            <div class="card-body">
 
 
-                            <?php
-                              while($row = mysqli_fetch_assoc($result)){
-                                $id_menu = $row['id_menu'];
-                                $produto_menu = $row['produto_menu'];
-                                echo 
-                                ""
-                            ?>
+          $secoes = array(
+            array("nome" => "Lanches","img" => "./imgs/secao_lanches.png"),
+            array("nome" => "Pratos","img" => "./imgs/secao_pratos.png"),
+            array("nome" => "Bebidas","img" => "./imgs/secao_bebidas.png"),
+            array("nome" => "Porcoes","img" => "./imgs/secao_porcoes.png"),
+          );
 
-                              <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
-                              </div>
-                              <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
-                              </div>
 
-                              <?php
-
-                              "";
-                              }
-                              ?>
-
-                            </div>              
-                        </div>   
-                                  
-                    </div>
-                  <?php
-                }
+          foreach($secoes as $secoes){
+            
+            $sql = "SELECT * FROM menu WHERE secao_menu='$secoes[nome]' AND id_empresa='$id_empresa' order by id_menu asc";
+            $result = mysqli_query($conexao, $sql);
+            $secao__qtd=mysqli_num_rows($result);
+            
+            if($secao__qtd>=1){
+              echo "";
               ?>
+                <div class="col-sm-12 col-md-6 col-xl-4">
+                    
+                    <div class="card border-0 mb-5">
+                        <img class="card-img-top" src=" <?php echo $secoes['img']; ?>">
+                        <div class="card-body">
 
-              <!--Secao Pratos-->
+
+                        <?php
+                          while($row = mysqli_fetch_assoc($result)){
+                            $id_menu = $row['id_menu'];
+                            $produto_menu = $row['produto_menu'];
+                            echo 
+                            ""
+                        ?>
+
+                          <div class="row d-flex justify-content-between">
+                            <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
+                          </div>
+                          <div class="row">
+                            <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
+                          </div>
+
+                          <?php
+
+                          "";
+                          }
+                          ?>
+
+                        </div>              
+                    </div>   
+                              
+                </div>
               <?php
-                $sql = "SELECT * FROM menu WHERE secao_menu='Pratos' AND id_empresa='$id_empresa' order by id_menu asc";
-                $result = mysqli_query($conexao, $sql);
-                $secao_pratos_qtd=mysqli_num_rows($result);
-                
-                if($secao_pratos_qtd>=1){
-                  echo "";
-                  ?>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        
-                        <div class="card border-0 mb-5">
-                            <img class="card-img-top" src="./imgs/secao_pratos.png">
-                            <div class="card-body">
+            }
+          
+          }
 
-
-                            <?php
-                              while($row = mysqli_fetch_assoc($result)){
-                                $id_menu = $row['id_menu'];
-                                $produto_menu = $row['produto_menu'];
-                                echo 
-                                ""
-                            ?>
-
-                              <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
-                              </div>
-                              <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
-                              </div>
-
-                              <?php
-
-                              "";
-                              }
-                              ?>
-
-                            </div>              
-                        </div>   
-                                  
-                    </div>
-                  <?php
-                }
-              ?>
-              <!--Secao Porcoes-->
-              <?php
-                $sql = "SELECT * FROM menu WHERE secao_menu='Porcoes' AND id_empresa='$id_empresa' order by id_menu asc";
-                $result = mysqli_query($conexao, $sql);
-                $secao_porcoes_qtd=mysqli_num_rows($result);
-                
-                if($secao_porcoes_qtd>=1){
-                  echo "";
-                  ?>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        
-                        <div class="card border-0 mb-5">
-                            <img class="card-img-top" src="./imgs/secao_porcoes.png">
-                            <div class="card-body">
-
-
-                            <?php
-                              while($row = mysqli_fetch_assoc($result)){
-                                $id_menu = $row['id_menu'];
-                                $produto_menu = $row['produto_menu'];
-                                echo 
-                                ""
-                            ?>
-
-                              <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
-                              </div>
-                              <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
-                              </div>
-
-                              <?php
-
-                              "";
-                              }
-                              ?>
-
-                            </div>              
-                        </div>   
-                                  
-                    </div>
-                  <?php
-                }
-              ?>
-              <!--Secao Bebidas-->
-              <?php
-                $sql = "SELECT * FROM menu WHERE secao_menu='Bebidas' AND id_empresa='$id_empresa' order by id_menu asc";
-                $result = mysqli_query($conexao, $sql);
-                $secao_bebidas_qtd=mysqli_num_rows($result);
-                
-                if($secao_bebidas_qtd>=1){
-                  echo "";
-                  ?>
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        
-                        <div class="card border-0 mb-5">
-                            <img class="card-img-top" src="./imgs/secao_bebidas.png">
-                            <div class="card-body">
-
-
-                            <?php
-                              while($row = mysqli_fetch_assoc($result)){
-                                $id_menu = $row['id_menu'];
-                                $produto_menu = $row['produto_menu'];
-                                echo 
-                                ""
-                            ?>
-
-                              <div class="row d-flex justify-content-between">
-                                <h5 class="card-title mb-0 pb-0"><?php echo $row['id_menu'];?> - <?php echo $row['produto_menu'];?></h5><h5 class="card-title mb-0 pb-0">R$ <?php echo number_format($row['valor_menu'],2,",","."); ?></h5>
-                              </div>
-                              <div class="row">
-                                <p class="card-text mb-2 text-muted text-left"><?php echo $row['descricao_menu'];?></p>
-                              </div>
-
-                              <?php
-
-                              "";
-                              }
-                              ?>
-
-                            </div>              
-                        </div>   
-                                  
-                    </div>
-                  <?php
-                }
-              ?>
-
-
-        
+        ?>
+              
 
         </div><!--Fechamento da linha que contem os cards-->
       </div><!--Fechamento do container-->
