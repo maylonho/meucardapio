@@ -10,3 +10,4 @@ lg ( para laptops e desktops - telas iguais ou maiores que 992px de largura)
 
 xl ( para laptops e desktops - telas iguais ou maiores que 1200px de largura)
 
+xxl
